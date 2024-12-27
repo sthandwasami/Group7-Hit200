@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <title>Sign Up Page</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f0f0; /* Light background for contrast */
+        }
+        .container {
+            display: flex; /* Use flexbox to arrange form and image */
+            width: 800px; /* Set a fixed width for the container */
+            height: 400px; /* Set a fixed height for the container */
+            border-radius: 10px; /* Rounded corners */
+            overflow: hidden; /* Prevent overflow */
+            box-shadow: 4px 2px 6px 3px black; /* Subtle shadow */
+        }
+        .signup-section {
+            flex: 1; /* Each section takes half the space */
+            display: flex;
+            flex-direction: column; /* Arrange children vertically */
+            justify-content: center;
+            align-items: center;
+            background-color: #f9f9f9;
+            padding: 20px; /* Padding inside the form section */
+        }
+        .signup-section h1 {
+            text-decoration: underline;
+            color: #ff1493;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .signup-section input {
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 100%;
+            font-size: 16px;
+        }
+        .signup-button {
+            background-color: #ff1493;
+            border: none;
+            border-radius: 20px;
+            padding: 10px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .signup-button:hover {
+            background-color: #ff69b4;
+        }
+        .login-link {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #ff1493;
+        }
+        .image-section {
+            flex: 1; /* Each section takes half the space */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #e0e0e0;
+        }
+        .image-section img {
+            height: 100%; /* Make the image take the full height of the section */
+            width: 100%; /* Maintain aspect ratio */
+            object-fit: cover; /* Ensure the image covers the area */
+        }
+        /* Custom styles for SweetAlert2 */
+        .swal2-popup {
+            font-size: 0.9rem; /* Reduce font size for notifications */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="signup-section">
+            <h1>SIGN UP</h1>
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button class="signup-button" id="signupButton">Sign Up</button>
+            <p class="login-link">Already have an account? <a href="login.html">Log In</a></p>
+        </div>
+
+        <div class="image-section">
+            <img src="login5.jpg" alt="Sign Up Image"> <!-- Replace with your actual image URL -->
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.getElementById('signupButton').addEventListener('click', function(event) {
+            // Prevent the default form submission
+            event.preventDefault();
+
+            // Get input values
+            const username = document.getElementById('username').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            // Basic validation
+            if (username === "") {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Input Required',
+                    text: 'Please enter your username.',
+                    confirmButtonText: 'OK',
+                    customClass: {
+                        popup: 'swal2-popup' // Apply custom class
+                    }
+                });
+                return;
+            }
+            if (email === "") {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Input Required',
+                    text: 'Please enter your email.',
+                    confirmButtonText: 'OK',
+                    customClass: {
+                        popup: 'swal2-popup' // Apply custom class
+                    }
+                });
+                return;
+            }
+            if (password === "") {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Input Required',
+                    text: 'Please enter your password.',
+                    confirmButtonText: 'OK',
+                    customClass: {
+                        popup: 'swal2-popup' // Apply custom class
+                    }
+                });
+                return;
+            }
+
+            // If validation passes, proceed (here you can add your signup logic)
+            Swal.fire({
+                icon: 'success',
+                title: 'Sign Up Successful!',
+                text: 'Welcome aboard!',
+                confirmButtonText: 'OK',
+                customClass: {
+                    popup: 'swal2-popup' // Apply custom class
+                }
+            });
+        });
+    </script>
+</body>
+</html>

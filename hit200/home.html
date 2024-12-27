@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship Recruitment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #425664; /* Header color */
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            position: relative; /* Set position to relative for dropdown positioning */
+        }
+        .menu-icon {
+            cursor: pointer;
+            font-size: 24px;
+            padding: 10px;
+        }
+        .dropdown {
+            display: none;
+            position: absolute; /* Position dropdown absolutely */
+            top: 60px; /* Position below the header */
+            left: 20px; /* Align with the left side of the header */
+            background-color: white;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            width: 150px;
+        }
+        .dropdown-item {
+            padding: 10px;
+            cursor: pointer;
+            color: black;
+        }
+        .dropdown-item:hover {
+            background-color: #c6ad8f; /* Hover color */
+            color: white; /* Change text color on hover */
+        }
+        .search-container {
+            display: flex;
+            align-items: center;
+            margin-left: 10px; /* Reduced margin for closer positioning */
+            margin-right: 20px; /* Added margin for spacing */
+        }
+        .search-icon {
+            background-color: #007BFF;
+            border: none;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+            margin-left: 10px; /* Add margin to separate from heading */
+        }
+        h1 {
+            margin: 0;
+            font-size: 24px;
+            text-align: center;
+            flex-grow: 1;
+        }
+        .heading{
+            text-shadow: 1px 2px 3pX black;
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        
+        }
+        .logo-column {
+            width: 40%;
+            display: grid;
+            grid-template-columns:repeat(2,1fr); /* Allow wrapping for logos */
+            justify-content: space-around;
+        }
+        .company-logo {
+            margin: 10px;
+            width: 120px; 
+            height:120px;
+            box-shadow: 4px 2px 6px 3px black;/* Adjust size as needed */
+        }
+        .info-column {
+            width: 55%;
+            text-align: left;
+        }
+        .info-column h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #425664; /* Header text color */
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        .info-column p {
+            color: #425664; 
+            background: linear-gradient(to right, #425664, #d8f); /* Gradient effect */
+            -webkit-background-clip: text;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 16px;
+            -webkit-text-fill-color: transparent;
+        }
+        .action-buttons {
+            margin-top: 20px;
+        }
+        .action-button {
+            padding: 10px 20px;
+            background-color: #c6ad8f; /* Button color */
+            color:#425664 ;
+            cursor: pointer;
+            margin-right: 10px;
+            border: 2px solid #425664 ;
+            border-radius: 7px;
+            overflow: hidden;
+        }
+        .action-button:hover {
+            background-color: #b89a7a; /* Darker shade for hover effect */
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #425664;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .content {
+                flex-direction: column;
+                align-items: center;
+            }
+            .logo-column, .info-column {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="menu-icon" onclick="toggleDropdown()">☰</div>
+    <h1 class="heading">Internship Recruitment</h1>
+    <div class="search-container">
+        <input type="text" placeholder="Search for internships..." />
+        <button class="search-icon" onclick="performSearch()">🔍</button>
+    </div>
+    <div class="auth-buttons">
+        <button onclick="login()">Login</button>
+        <button onclick="signup()">Sign Up</button>
+    </div>
+</header>
+
+<div class="dropdown" id="dropdownMenu">
+    <div class="dropdown-item" onclick="navigateTo('students')">Students</div>
+    <div class="dropdown-item" onclick="navigateTo('employers')">Employers</div>
+    <div class="dropdown-item" onclick="navigateTo('admin')">Admin</div>
+</div>
+
+<div class="content">
+    <div class="logo-column">
+        <img src="telecel.jpg" alt="Company Logo 1" class="company-logo">
+        <img src="netone.jpg" alt="Company Logo 2" class="company-logo">
+        <img src="cbz.jpg" alt="Company Logo 3" class="company-logo">
+        <img src="zimra.jpeg" alt="Company Logo 4" class="company-logo">
+        <img src="econet.jpg" alt="Company Logo 5" class="company-logo">
+        <img src="csz.jpg" alt="Company Logo 6" class="company-logo">
+    </div>
+
+    <div class="info-column">
+        <h2>Get Internships with Top Companies!!!</h2>
+        <p class="content">We connect students with leading companies to help them secure valuable internships. Our network includes top organizations across various industries, providing you with the opportunities you need to kickstart your career.</p>
+        <div class="action-buttons">
+            <button class="action-button">Start Applying ➔</button>
+            <button class="action-button">Start Hiring ➔</button>
+        </div>
+    </div>
+</div>
+
+
+
+<footer>
+    &copy; 2024 Internship Recruitment | All Rights Reserved
+</footer>
+
+<script>
+    function login() {
+        alert("Login button clicked!");
+        // Here you can add your login logic
+    }
+
+    function signup() {
+        alert("Sign Up button clicked!");
+        // Here you can add your signup logic
+    }
+
+    function performSearch() {
+        alert("Search button clicked!");
+        // Here you can add your search logic
+    }
+
+    function toggleDropdown() {
+        const dropdown = document.getElementById('dropdownMenu');
+        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function navigateTo(section) {
+        alert("Navigating to: " + section);
+        // Implement actual navigation logic here
+    }
+
+    // Close dropdown if clicked outside
+    window.onclick = function(event) {
+        if (!event.target.matches('.menu-icon') && !event.target.matches('.dropdown-item')) {
+            const dropdowns = document.getElementsByClassName("dropdown");
+            for (let i = 0; i < dropdowns.length; i++) {
+                const openDropdown = dropdowns[i];
+                if (openDropdown.style.display === 'block') {
+                    openDropdown.style.display = 'none';
+                }
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

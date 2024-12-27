@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <title>Login Page</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f0f0; /* Light background for contrast */
+        }
+        .container {
+            display: flex; /* Use flexbox to arrange form and image */
+            width: 800px; /* Set a fixed width for the container */
+            height: 400px; /* Set a fixed height for the container */
+            border-radius: 10px; /* Rounded corners */
+            overflow: hidden; /* Prevent overflow */
+            box-shadow: 4px 2px 6px 3px black;
+        }
+        .login-section {
+            flex: 1; /* Each section takes half the space */
+            display: flex;
+            flex-direction: column; /* Arrange children vertically */
+            justify-content: center;
+            align-items: center;
+            background-color: #f9f9f9;
+            padding: 20px; /* Padding inside the form section */
+        }
+        .login-section h1 {
+            text-decoration: underline;
+            color: #ff1493;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .login-section input {
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 100%;
+            font-size: 16px;
+        }
+        .login-button {
+            background-color: #ff1493;
+            border: none;
+            border-radius: 20px;
+            padding: 10px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .login-button:hover {
+            background-color: #ff69b4;
+        }
+        .signup-link {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #ff1493;
+        }
+        .image-section {
+            flex: 1; /* Each section takes half the space */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #e0e0e0;
+        }
+        .image-section img {
+            height: 100%; /* Make the image take the full height of the section */
+            width: 100%; /* Maintain aspect ratio */
+            object-fit: cover; /* Ensure the image covers the area */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="login-section">
+            <h1>LOGIN</h1>
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+
+            <button class="login-button" id="loginButton">Log In</button>
+            <p class="signup-link">Don't have an account? <a href="signup.html">Sign Up</a></p>
+        </div>
+
+        <div class="image-section">
+            <img src="login5.jpg" alt="Login Image"> <!-- Replace with your actual image URL -->
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.getElementById('loginButton').addEventListener('click', function(event) {
+            // Prevent the default form submission
+            event.preventDefault();
+
+            // Get input values
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            // Basic validation
+            if (username === "") {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Input Required',
+                    text: 'Please enter your username.',
+                    confirmButtonText: 'OK'
+                });
+                return;
+            }
+            if (password === "") {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Input Required',
+                    text: 'Please enter your password.',
+                    confirmButtonText: 'OK'
+                });
+                return;
+            }
+
+            // If validation passes, proceed (here you can add your login logic)
+            Swal.fire({
+                icon: 'success',
+                title: 'Login Successful!',
+                text: 'Welcome back!',
+                confirmButtonText: 'OK'
+            });
+        });
+    </script>
+</body>
+</html>
